@@ -8,7 +8,10 @@ import Layout from "../../src/layout";
 
 
 const Post = (props) => {
+
   let { title="" } = props.post;
+  console.log("Der Title ist: " + title);
+  
   const router = useRouter()
   return(
     <>
@@ -54,6 +57,8 @@ export async function getStaticProps(context) {
   const footerContent = await client.fetch(groq`
     *[_type == "footer"][0]{brandName, locationName, telephoneNumber, socialFacebook, socialInstagram, socialTwitter}
   `)
+  console.log("Jetzt werden die Static Files empfangen.");
+  console.log(post);
   return {
     props: {
       post,
