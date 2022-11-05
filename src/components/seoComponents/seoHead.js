@@ -1,5 +1,5 @@
 import Head from "next/head"
-import siteMetadata from "./siteMetadata"
+import siteMetadata from "./SiteMetaData"
 
 
 export default function SeoHead({  title,
