@@ -11,10 +11,11 @@ const siteMetadata = {
     twitter: "https://twitter.com/risao",
     twitterHandle: "@risao",
     facebook: "https://www.facebook.com/risao",
-    instagram: "https://www.instagram.com/risao",
-    linkedin: "https://www.linkedin.com/in/risao",
-    defaultKeyWords: "Blog ",
+    instagram: "https://www.instagram.com/",
+    linkedin: "https://www.linkedin.com/in/",
+    defaultKeyWords: "Blog",
 }
+
 
 export default siteMetadata
 
