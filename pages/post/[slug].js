@@ -9,8 +9,8 @@ import Layout from "../../src/layout";
 
 const Post = (props) => {
 
-  let { title="" } = props.post;
-  console.log("Der Title ist: " + props?.post?.title);
+  // let { title="" } = props.post;
+  // console.log("Der Title ist: " + props?.post?.title);
 
   // const Se = () => {
   //   console.log("Der Title in der Componente ist: " + props?.post?.title);
@@ -27,10 +27,10 @@ const Post = (props) => {
   const router = useRouter()
   return(
     <>
-      <SeoHead
+      {typeof props?.post?.title !== 'undefined' && (<SeoHead
           canonicalUrl={router.pathname}
           title={props?.post?.title}
-        />
+        />)}
         <Layout footerContent={props.footerContent}>
           <BlogPage {...props}/>
         </Layout>
