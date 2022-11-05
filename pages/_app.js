@@ -7,10 +7,6 @@ import { CacheProvider } from '@emotion/react';
 import theme from '../styles/theme';
 import '../styles/globals.css';
 import "../styles/blog.css";
-import SeoHead from "../src/components/seoComponents/seoHead";
-import {specialTitle, titelCreater} from "../src/components/seoComponents/seoTitles"
-//import SeoHead from "../src/components/seoComponents/seoHead";
-//import {specialTitle, titelCreater} from "../src/components/seoComponents/seoTitles"
 //So importierst Du css Styles. --> import "../styles/consoleLogDesignCss.css"
 import createEmotionCache from '../src/createEmotionCache';
 import Script from 'next/script'
@@ -47,10 +43,6 @@ export default function MyApp(props) {
         {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
         <CssBaseline />
           <AppWrapper>
-            <SeoHead
-                canonicalUrl={appProps.router.pathname}
-                title={specialTitle[appProps.router.pathname] ? specialTitle[appProps.router.pathname] : titelCreater(router.pathname)}
-              />
               {/* Google Tag Manager - Global base code */}
               <Script
                 id="gtag-base"

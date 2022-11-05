@@ -12,22 +12,25 @@ const Post = (props) => {
   let { title="" } = props.post;
   console.log("Der Title ist: " + props?.post?.title);
 
-  const SEOHEADC = () => {
-    console.log("Der Title in der Componente ist: " + props?.post?.title);
-    return(
-      <>
-      <SeoHead
-          canonicalUrl={router.pathname}
-          title={props?.post?.title}
-        />
-      </>
-    )
-  }
+  // const Se = () => {
+  //   console.log("Der Title in der Componente ist: " + props?.post?.title);
+  //   return(
+  //     <>
+  //     <SeoHead
+  //         canonicalUrl={router.pathname}
+  //         title={props?.post?.title}
+  //       />
+  //     </>
+  //   )
+  // }
 
   const router = useRouter()
   return(
     <>
-      <SEOHEADC/>
+      <SeoHead
+          canonicalUrl={router.pathname}
+          title={props?.post?.title}
+        />
         <Layout footerContent={props.footerContent}>
           <BlogPage {...props}/>
         </Layout>
@@ -51,6 +54,8 @@ export async function getStaticPaths() {
   const paths = await client.fetch(
     `*[_type == "post" && defined(slug.current)][].slug.current`
   )
+  console.log("Jetzt runned getStaticPaths");
+  console.log(paths);
   //In paths sind nun alle slugs enthalten die Du auf Sainty in der Cloud hast.
   //Diese Slugs werden an params weitergegeben, sodass getStaticProps diesen via context.params zur verfuegung steht.
   return {
