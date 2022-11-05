@@ -10,15 +10,24 @@ import Layout from "../../src/layout";
 const Post = (props) => {
 
   let { title="" } = props.post;
-  console.log("Der Title ist: " + title);
+  console.log("Der Title ist: " + props?.post?.title);
+
+  const SEOHEADC = () => {
+    console.log("Der Title in der Componente ist: " + props?.post?.title);
+    return(
+      <>
+      <SeoHead
+          canonicalUrl={router.pathname}
+          title={props?.post?.title}
+        />
+      </>
+    )
+  }
 
   const router = useRouter()
   return(
     <>
-      <SeoHead
-          canonicalUrl={router.pathname}
-          title={title ? title : ""}
-        />
+      <SEOHEADC/>
         <Layout footerContent={props.footerContent}>
           <BlogPage {...props}/>
         </Layout>

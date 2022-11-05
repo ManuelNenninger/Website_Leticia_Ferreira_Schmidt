@@ -2,7 +2,7 @@ import Head from "next/head"
 import siteMetadata from "./SiteMetaData"
 
 
-export default function SeoHead({  title,
+export default function SeoHead({ title,
     description,
     canonicalUrl,
     ogTwitterImage,
@@ -15,7 +15,7 @@ export default function SeoHead({  title,
 
 //https://developers.google.com/search/docs/advanced/crawling/consolidate-duplicate-urls?hl=de&visit_id=638009830701032306-2086084526&rd=1
 //canonicalUrl wird angegeben als https://... und die Index Seite.
-
+console.log("Der Title im SEOHEad ist: " + title);
   return(
     <>
     <Head>
