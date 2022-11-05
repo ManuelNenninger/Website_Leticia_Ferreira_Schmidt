@@ -9,16 +9,16 @@ import Layout from "../../src/layout";
 
 const Post = (props) => {
 
-  let { title="" } = props.post;
-  console.log("Der Title ist: " + title);
-  
+  // let { title="" } = props.post;
+  // console.log("Der Title ist: " + title);
+
   const router = useRouter()
   return(
     <>
-      <SeoHead
+      {/*<SeoHead
           canonicalUrl={router.pathname}
           title={title}
-        />
+        />*/}
         <Layout footerContent={props.footerContent}>
           <BlogPage {...props}/>
         </Layout>
