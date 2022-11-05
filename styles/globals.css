@@ -29,15 +29,17 @@ a {
 /* Wenn next/image nicht den Grid Space füllt!
 https://dev.to/tanahmed/next-image-make-image-fill-available-space-272o */
 .custom-img {
-  object-fit: contain;
+  object-fit: cover;
   width: 100% !important;
   position: relative !important;
   height: unset !important;
-  border-radius: 20px;
+  border-radius: 50%;
+
 }
 
 .unset-img {
   width: 100%;
+  overflow: hidden;
 }
 .unset-img > div {
   position: unset !important;

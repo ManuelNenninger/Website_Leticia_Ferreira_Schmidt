@@ -9,21 +9,9 @@ import Layout from "../../src/layout";
 
 const Post = (props) => {
 
-  // let { title="" } = props.post;
-  // console.log("Der Title ist: " + props?.post?.title);
-
-  // const Se = () => {
-  //   console.log("Der Title in der Componente ist: " + props?.post?.title);
-  //   return(
-  //     <>
-  //     <SeoHead
-  //         canonicalUrl={router.pathname}
-  //         title={props?.post?.title}
-  //       />
-  //     </>
-  //   )
-  // }
-
+// let { title="" } = props.post;
+//Der SeoHead wird im Build vor getStaticProps pre-rendered
+//Deshalb wird title als undef. weitergegeben und der Build bricht mit error ab
   const router = useRouter()
   return(
     <>
@@ -54,8 +42,7 @@ export async function getStaticPaths() {
   const paths = await client.fetch(
     `*[_type == "post" && defined(slug.current)][].slug.current`
   )
-  console.log("Jetzt runned getStaticPaths");
-  console.log(paths);
+
   //In paths sind nun alle slugs enthalten die Du auf Sainty in der Cloud hast.
   //Diese Slugs werden an params weitergegeben, sodass getStaticProps diesen via context.params zur verfuegung steht.
   return {
@@ -71,8 +58,7 @@ export async function getStaticProps(context) {
   const footerContent = await client.fetch(groq`
     *[_type == "footer"][0]{brandName, locationName, telephoneNumber, socialFacebook, socialInstagram, socialTwitter}
   `)
-  console.log("Jetzt werden die Static Files empfangen.");
-  console.log(post);
+  
   return {
     props: {
       post,

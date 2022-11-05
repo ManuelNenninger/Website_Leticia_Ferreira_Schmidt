@@ -13,15 +13,15 @@ function urlFor (source) {
 export default function heroPicture({mainImage}) {
   return (
     <>
-      <Box className="unset-img" sx={{ px: {xs: 1, md: 4}, }}>
-        <BlobWrapper>
+      <Box className="unset-img" sx={{ px: {xs: 1, md: 10}, }}>
+        {/*<BlobWrapper>*/}
           <Image
           alt="Picture of the author"
-          width={5000}
-          height={5000}
+          width={1200}
+          height={1200}
           src={urlFor(mainImage).url()}
           className="custom-img"/>
-        </BlobWrapper>
+        {/*</BlobWrapper>*/}
       </Box>
     </>
   );
