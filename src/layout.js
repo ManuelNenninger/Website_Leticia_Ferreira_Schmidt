@@ -1,14 +1,17 @@
 import Box from '@mui/material/Box';
 import { useTheme } from '@mui/material/styles';
-//import Footer from "./organisms/footer"
+import Footer from "./components/organisms/footer"
 import dynamic from 'next/dynamic'
+import { useAppContext } from "./appContext";
+
 //AbbBar muss aufgrund eines Bugs Client Side gerenderd werden. Nicht pre-rendered.
-// const AppBar = dynamic(
-//     () => import('./organisms/appbar'),
-//     { ssr: false }
-// )
+const AppBar = dynamic(
+    () => import('./components/organisms/appBar'),
+    { ssr: false }
+)
 export default function Layout(props){
   const theme = useTheme();
+  const value = useAppContext();
 
   return(
       <>
@@ -21,13 +24,12 @@ export default function Layout(props){
           sx={{
           maxWidth: "1680px",
           mx: "auto",
-          //px: 6,
           }}
         >
-          {/*<AppBar>*/}
+          <AppBar primaryCallToAction={props?.primaryCallToAction}>
             <main>{props.children}</main>
-            {/*<Footer/>*/}
-          {/*</AppBar>*/}
+            <Footer footerContent={props.footerContent}/>
+          </AppBar>
         </Box>
       </Box>
       </>

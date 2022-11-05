@@ -6,6 +6,9 @@ import CssBaseline from '@mui/material/CssBaseline';
 import { CacheProvider } from '@emotion/react';
 import theme from '../styles/theme';
 import '../styles/globals.css';
+import "../styles/blog.css";
+import SeoHead from "../src/components/seoComponents/seoHead";
+import {specialTitle, titelCreater} from "../src/components/seoComponents/seoTitles"
 //import SeoHead from "../src/components/seoComponents/seoHead";
 //import {specialTitle, titelCreater} from "../src/components/seoComponents/seoTitles"
 //So importierst Du css Styles. --> import "../styles/consoleLogDesignCss.css"
@@ -13,6 +16,8 @@ import createEmotionCache from '../src/createEmotionCache';
 import Script from 'next/script'
 import { useRouter } from 'next/router'
 import * as gtag from '../lib/gtag'
+import { AppWrapper } from "../src/appContext";
+
 
 // Client-side cache, shared for the whole session of the user in the browser.
 const clientSideEmotionCache = createEmotionCache();
@@ -41,10 +46,11 @@ export default function MyApp(props) {
       <ThemeProvider theme={theme}>
         {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
         <CssBaseline />
-          {/*<SeoHead
-              canonicalUrl={appProps.router.pathname}
-              title={specialTitle[appProps.router.pathname] ? specialTitle[appProps.router.pathname] : titelCreater(router.pathname)}
-            />*/}
+          <AppWrapper>
+            <SeoHead
+                canonicalUrl={appProps.router.pathname}
+                title={specialTitle[appProps.router.pathname] ? specialTitle[appProps.router.pathname] : titelCreater(router.pathname)}
+              />
               {/* Google Tag Manager - Global base code */}
               <Script
                 id="gtag-base"
@@ -79,6 +85,7 @@ export default function MyApp(props) {
                 }}
               />
                 <Component {...pageProps} />
+        </AppWrapper>
       </ThemeProvider>
     </CacheProvider>
   );

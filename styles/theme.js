@@ -5,12 +5,13 @@ import { createTheme } from '@mui/material/styles';
 const theme = createTheme({
   palette: {
      primary: {
-       main: 'rgb(222, 222, 210)',
-       light: "rgba( 222, 222, 210, 0.6 )",
+       main: 'rgb(226, 207, 207)',
+       light: "rgba( 226, 207, 207, 0.6 )",
      },
     secondary: {
-      main: 'rgb(29, 58, 36)',
-      light: "rgba(29, 58, 36, 0.55)",
+      main: 'rgb(38, 36, 36)',
+      //main: 'rgb(234, 168, 0)',
+      light: "rgba(38, 36, 36, 0.55)",
     },
     error: {
       main: "rgb(97, 53, 38)",
@@ -23,10 +24,13 @@ const theme = createTheme({
       dark: '#292727',
     },
     text: {
-      main: 'rgb(29, 58, 36)',
+      main: 'rgb(0, 29, 61)',
       secondary: 'rgb(222, 222, 210)',
     },
   },
+  typography: {
+    //fontFamily: "'DM Sans', sans-serif",
+  }
   // typography: {
   //   //fontFamily: "'IBM Plex Mono', monospace",
   //   h1: {

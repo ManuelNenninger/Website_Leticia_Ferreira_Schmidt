@@ -1,0 +1,13 @@
+.custom-img-blog {
+  width: 100% !important;
+  position: relative !important;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.unset-img-blog {
+  width: 100%;
+}
+.unset-img-blog > div {
+  position: unset !important;
+}

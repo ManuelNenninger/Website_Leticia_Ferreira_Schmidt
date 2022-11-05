@@ -5,7 +5,7 @@ import Divider from '@mui/material/Divider';
 
 export default function SectionWrapper(props){
   const theme = useTheme();
-  const {upperWave, lowerWave, footer, secondaryBackgroundColor, topDistance, bottomDistance, fullDistanceTop, fullDistanceBottom, fullViewHeight } = props;
+  const {upperWave, lowerWave, footer, secondaryBackgroundColor, topDistance, bottomDistance, fullDistanceTop, fullDistanceBottom, fullViewHeight, deviderTop, deviderBottom } = props;
   //Eine Wave schafft 300px distance. Hier kommen 150px padding, sowie 150px Margin des Deviders hinzu
   const gridDistance = 150;
 
@@ -61,14 +61,14 @@ export default function SectionWrapper(props){
           minHeight: heightCheck(),
           maxWidth: "1680px",
           backgroundColor: secondaryBackgroundColor ? theme.palette.secondary.main : theme.palette.primary.main,
-          px: {xs: 3,  md:6},
+          px: {xs: 1, md: 10},
           pt: upperPaddingCheck(),
           pb: lowerPaddingCheck(),
         }}
       >
-      {topDistance ? (<Divider variant="middle" sx={{mb: "150px", backgroundColor: secondaryBackgroundColor ? theme.palette.primary.main : theme.palette.secondary.main}}/>) : <></>}
+      {(topDistance & deviderTop )? (<Divider variant="middle" sx={{mb: "150px", backgroundColor: secondaryBackgroundColor ? theme.palette.primary.main : theme.palette.secondary.main}}/>) : <></>}
         {props.children}
-      {bottomDistance ? (<Divider variant="middle" sx={{mt: "150px", backgroundColor: secondaryBackgroundColor ? theme.palette.primary.main : theme.palette.secondary.main}}/>) : <></>}
+      {(bottomDistance & deviderBottom) ? (<Divider variant="middle" sx={{mt: "150px", backgroundColor: secondaryBackgroundColor ? theme.palette.primary.main : theme.palette.secondary.main}}/>) : <></>}
       </Box>
       {lowerWave ? <SvgWrapper>
         <path

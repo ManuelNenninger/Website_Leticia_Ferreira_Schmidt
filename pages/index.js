@@ -2,27 +2,19 @@ import Link from 'next/link'
 import groq from 'groq'
 import client from '../client'
 import Typography from '@mui/material/Typography';
-import SectionWrapper from "../src/components/atoms/wrapperElements/sectionWrapper"
+import HomePage from "../src/components/templates/homePage/mainPage";
+// import { useAppContext } from "../src/appContext";
+import Layout from "../src/layout";
 
-const Index = ({posts}) => {
+const Index = (props) => {
+  // let value = useAppContext();
+  // value.setFooterContent(() => {
+  //   return props.footerContent
+  // });
     return (
-      <SectionWrapper fullDistanceTop fullViewHeight>
-        <Typography variant="h1" gutterBottom>
-          Welcome to a blog!
-        </Typography>
-
-        {posts.length > 0 && posts.map(
-          ({ _id, title = '', slug = '', publishedAt = '' }) =>
-            slug && (
-              <li key={_id}>
-                <Link href="/post/[slug]" as={`/post/${slug.current}`}>
-                  {title}
-                </Link>{' '}
-                ({new Date(publishedAt).toDateString()})
-              </li>
-            )
-        )}
-      </SectionWrapper>
+      <Layout footerContent={props.footerContent} primaryCallToAction={props.heroContent.primaryCallToAction}>
+        <HomePage {...props} />
+      </Layout >
     )
 }
 
@@ -32,13 +24,24 @@ export async function getStaticProps() {
       *[_type == "post" && publishedAt < now()] | order(publishedAt desc)
     `)
     const heroContent = await client.fetch(groq`
-      *[_type == "heroSection"][0]
+      *[_type == "heroSection"][0]{heroTitle, heroDescribtion, mainImage, "primaryCallToAction": primaryCallToAction->{url,linkText}, "secondaryCallToAction": secondaryCallToAction->{url,linkText},  }
     `)
-    console.log(heroContent);
+    const portfolioTitel = await client.fetch(groq`
+      *[_type == "portfolioSectionContent"][0]{title}
+    `)
+    const aboutContent = await client.fetch(groq`
+      *[_type == "aboutSection"][0]{aboutTitle, body}
+    `)
+    const footerContent = await client.fetch(groq`
+      *[_type == "footer"][0]{brandName, locationName, telephoneNumber, socialFacebook, socialInstagram, socialTwitter}
+    `)
     return {
       props: {
         posts,
-        heroContent
+        heroContent,
+        portfolioTitel,
+        aboutContent,
+        footerContent,
       }
     }
 }
