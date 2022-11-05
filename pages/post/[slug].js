@@ -9,8 +9,8 @@ import Layout from "../../src/layout";
 
 const Post = (props) => {
 
-  // let { title="" } = props.post;
-  // console.log("Der Title ist: " + title);
+  let { title="" } = props.post;
+  console.log("Der Title ist: " + title);
 
   const router = useRouter()
   return(
