@@ -15,10 +15,10 @@ const Post = (props) => {
   const router = useRouter()
   return(
     <>
-      {/*<SeoHead
+      <SeoHead
           canonicalUrl={router.pathname}
-          title={title}
-        />*/}
+          title={title ? title : ""}
+        />
         <Layout footerContent={props.footerContent}>
           <BlogPage {...props}/>
         </Layout>

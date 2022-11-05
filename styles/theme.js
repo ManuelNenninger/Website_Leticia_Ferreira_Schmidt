@@ -29,7 +29,7 @@ const theme = createTheme({
     },
   },
   typography: {
-    //fontFamily: "'DM Sans', sans-serif",
+    fontFamily: "'Roboto Mono', monospace",
   }
   // typography: {
   //   //fontFamily: "'IBM Plex Mono', monospace",
