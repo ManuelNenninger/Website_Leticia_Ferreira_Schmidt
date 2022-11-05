@@ -5,21 +5,24 @@ import Typography from '@mui/material/Typography';
 import HomePage from "../src/components/templates/homePage/mainPage";
 // import { useAppContext } from "../src/appContext";
 import Layout from "../src/layout";
-// import SeoHead from "../src/components/seoComponents/seoHead";
+import SeoHead from "../src/components/seoComponents/seoHead";
+
+
 const Index = (props) => {
   // let value = useAppContext();
   // value.setFooterContent(() => {
   //   return props.footerContent
   // });
     return (
-      <SeoHead
-          canonicalUrl={"/"}
-          test={"true"}
-          title={"Titel noch nicht vergeben"}
-        />
-      <Layout footerContent={props.footerContent} primaryCallToAction={props.heroContent.primaryCallToAction}>
-        <HomePage {...props} />
-      </Layout >
+      <>
+        <SeoHead
+            canonicalUrl={"/"}
+            title={"Titel noch nicht vergeben"}
+          />
+        <Layout footerContent={props.footerContent} primaryCallToAction={props.heroContent.primaryCallToAction}>
+          <HomePage {...props} />
+        </Layout >
+      </>
     )
 }
 
