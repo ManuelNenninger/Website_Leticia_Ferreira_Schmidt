@@ -43,6 +43,7 @@ export async function getStaticProps() {
     const footerContent = await client.fetch(groq`
       *[_type == "footer"][0]{brandName, locationName, telephoneNumber, socialFacebook, socialInstagram, socialTwitter}
     `)
+    
     return {
       props: {
         posts,

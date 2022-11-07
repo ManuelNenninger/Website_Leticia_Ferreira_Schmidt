@@ -27,7 +27,7 @@ const {heroTitle, heroDescribtion, primaryCallToAction, secondaryCallToAction} =
           direction="column"
           justifyContent="center"
           alignItems="flex-start"
-          sx={{ pr: { xs: "none", md: 15 } }}
+          sx={{ pr: { xs: "none", md: 5 } }}
         >
           <Grid item sx={{ mb: 3 }}>
             <Box sx={{ display: { xs: "none", sm: "block" } }}>

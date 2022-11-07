@@ -16,7 +16,7 @@ export default function HeroSection({heroContent}) {
           justifyContent="space-between"
           alignItems="flex-start"
           sx={{ minHeight: "100%",  }}
-          spacing={5}
+          spacing={3}
           //Alternative Positionierung durch padding & margin
           //sx={{ pr: { xs: "none", md: 15 }, mt: {xs: 10, md: 0} }}
         >
