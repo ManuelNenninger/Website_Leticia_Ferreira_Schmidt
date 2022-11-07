@@ -5,7 +5,7 @@ import BlogPage from "../../src/components/templates/blog/blogPage"
 import SeoHead from "../../src/components/seoComponents/seoHead";
 import { useRouter } from 'next/router'
 import Layout from "../../src/layout";
-
+import {urlFor } from "../../src/components/atoms/sanityComponents/sanityComponents";
 
 const Post = (props) => {
 
@@ -16,8 +16,11 @@ const Post = (props) => {
   return(
     <>
       {typeof props?.post?.title !== 'undefined' && (<SeoHead
-          canonicalUrl={router.pathname}
+          canonicalUrl={"posts/" + props?.post?.slug}
           title={props?.post?.title}
+          ogImageUrl={urlFor(props?.post?.mainImage)}
+          ogTwitterImage={urlFor(props?.post?.mainImage)}
+          ogType="Blog"
         />)}
         <Layout footerContent={props.footerContent}>
           <BlogPage {...props}/>
@@ -34,7 +37,8 @@ const query = groq`*[_type == "post" && slug.current == $slug][0]{
   "authorImage": author->image,
   mainImage,
   body,
-  publishedAt
+  publishedAt,
+  "slug": slug.current,
 }`
 
 export async function getStaticPaths() {
@@ -58,7 +62,7 @@ export async function getStaticProps(context) {
   const footerContent = await client.fetch(groq`
     *[_type == "footer"][0]{brandName, locationName, telephoneNumber, socialFacebook, socialInstagram, socialTwitter}
   `)
-  
+
   return {
     props: {
       post,

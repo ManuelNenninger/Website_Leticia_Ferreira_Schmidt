@@ -31,7 +31,7 @@ export default function SeoHead({
          <meta name="google" content="notranslate" />
          //Basic metadata
          <meta name="title" content={typeof title !== 'undefined' ? (title) : (siteMetadata.title)} key="title" />
-         <meta name="description" content={description ? description : siteMetadata.description } key="desc"/>
+         <meta name="description" content={description ? description : siteMetadata.describtion} key="desc"/>
          <meta name="site_name" content={siteName? siteName : siteMetadata.siteName} key="name"/>
          <meta name="type" content={ogType? ogType : "website"} key="type"/>
          <meta name="keywords" content={keyWords? keyWords : siteMetadata.defaultKeyWords }/>

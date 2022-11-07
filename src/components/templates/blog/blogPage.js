@@ -48,7 +48,7 @@ export default function BoxSx(props) {
           >
             <Box className="unset-img-blog" sx={{ width: "100%" }}>
               <Image
-                alt="Picture of the author"
+                alt={title}
                 width={900}
                 height={600}
                 src={urlFor(mainImage).url()}

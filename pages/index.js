@@ -6,6 +6,7 @@ import HomePage from "../src/components/templates/homePage/mainPage";
 // import { useAppContext } from "../src/appContext";
 import Layout from "../src/layout";
 import SeoHead from "../src/components/seoComponents/seoHead";
+import { urlFor } from "../src/components/atoms/sanityComponents/sanityComponents";
 
 
 const Index = (props) => {
@@ -17,7 +18,10 @@ const Index = (props) => {
       <>
         <SeoHead
             canonicalUrl={"/"}
-            title={"Titel noch nicht vergeben"}
+            title={"Leticia Ferreira Schmidt"}
+            ogImageUrl={urlFor(props?.heroContent?.mainImage)}
+            ogTwitterImage={urlFor(props?.heroContent?.mainImage)}
+            description={props?.heroContent?.heroDescribtion}
           />
         <Layout footerContent={props.footerContent} primaryCallToAction={props.heroContent.primaryCallToAction}>
           <HomePage {...props} />
@@ -43,7 +47,7 @@ export async function getStaticProps() {
     const footerContent = await client.fetch(groq`
       *[_type == "footer"][0]{brandName, locationName, telephoneNumber, socialFacebook, socialInstagram, socialTwitter}
     `)
-    
+
     return {
       props: {
         posts,
