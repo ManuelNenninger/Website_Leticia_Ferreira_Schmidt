@@ -55,7 +55,8 @@ export async function getStaticProps() {
         portfolioTitel,
         aboutContent,
         footerContent,
-      }
+      },
+      revalidate: process.env.SANITY_REVALIDATE_SECRET ? parseInt(process.env.SANITY_REVALIDATE_SECRET) : parseInt(86400),
     }
 }
 

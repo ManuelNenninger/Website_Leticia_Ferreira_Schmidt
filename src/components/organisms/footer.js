@@ -7,8 +7,10 @@ import InstagramIcon from "@mui/icons-material/Instagram";
 import FacebookRoundedIcon from "@mui/icons-material/FacebookRounded";
 import TwitterIcon from "@mui/icons-material/Twitter";
 import IconButton from "@mui/material/IconButton";
+import PolicyOutlinedIcon from '@mui/icons-material/PolicyOutlined';
 import SectionWrapper from "../atoms/wrapperElements/sectionWrapper"
 import Divider from '@mui/material/Divider';
+import Link from "next/link";
 import { useAppContext } from "../../appContext";
 
 export default function BoxSx(props) {
@@ -95,6 +97,27 @@ export default function BoxSx(props) {
               </Grid>
             </Grid>
             </Grid>
+            <Grid item xs={12}>
+              <Grid
+                container
+                direction="row"
+                justifyContent="space-between"
+                alignItems="flex-start"
+                spacing={1}
+              >
+                <Grid item>
+                  {" "}
+                  <PolicyOutlinedIcon />
+                </Grid>
+                <Grid item>
+                <Link href="/impressum">
+                  <Typography variant="body1" gutterBottom>
+                    Impressum
+                  </Typography>
+                </Link>
+                </Grid>
+              </Grid>
+              </Grid>
             <Grid item>
               <SocialGrid />
             </Grid>

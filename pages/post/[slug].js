@@ -62,12 +62,13 @@ export async function getStaticProps(context) {
   const footerContent = await client.fetch(groq`
     *[_type == "footer"][0]{brandName, locationName, telephoneNumber, socialFacebook, socialInstagram, socialTwitter}
   `)
-
+console.log("Es wird revalidiert in: " + process.env.SANITY_REVALIDATE_SECRET);
   return {
     props: {
       post,
       footerContent
-    }
+    },
+    revalidate: process.env.SANITY_REVALIDATE_SECRET ? parseInt(process.env.SANITY_REVALIDATE_SECRET) : parseInt(86400),
   }
 }
 

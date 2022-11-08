@@ -81,9 +81,9 @@ const [anchorElNav, setAnchorElNav] = React.useState(null)
         display: { xs: 'block', md: 'none' },
       }}
     >
-      <Link href="htpps://www.google.de">
+      <Link href={toString(props?.primaryCallToAction?.url)}>
         <MenuItem onClick={handleCloseNavMenu} >
-            <Typography textAlign="center">Say Hello</Typography>
+            <Typography textAlign="center">{props?.primaryCallToAction?.linkText}</Typography>
         </MenuItem>
       </Link>
     </Menu>
@@ -106,7 +106,7 @@ const [anchorElNav, setAnchorElNav] = React.useState(null)
             sx={{width: "100%", maxWidth: 1680, mx: "auto"}}>
             <Typography variant="h4" component="div" sx={{ flexGrow: 1, fontFamily: "'Comfortaa', cursiv", fontWeight: "600" }}>
               <Link href="/">
-                  Brand
+                {props?.brandName}
               </Link>
             </Typography>
             <Box sx={{ display: { xs: 'block', md: 'none' } }}>

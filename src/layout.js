@@ -26,7 +26,7 @@ export default function Layout(props){
           mx: "auto",
           }}
         >
-          <AppBar primaryCallToAction={props?.primaryCallToAction}>
+          <AppBar primaryCallToAction={props?.primaryCallToAction} brandName={props?.footerContent?.brandName}>
             <main>{props.children}</main>
             <Footer footerContent={props.footerContent}/>
           </AppBar>
