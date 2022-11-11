@@ -19,15 +19,15 @@ export const ptComponents = {
   },
   block: {
     // Ex. 1: customizing common block types
-    h1: ({children}) => <Typography variant="h1" gutterBottom>{children}</Typography>,
-    h2: ({children}) => <Typography variant="h2" gutterBottom>{children}</Typography>,
-    h3: ({children}) => <Typography variant="h3" gutterBottom>{children}</Typography>,
-    h4: ({children}) => <Typography variant="h4" gutterBottom>{children}</Typography>,
-    normal: ({children}) => <Typography variant="subtitle1" gutterBottom>{children}</Typography>,
-    blockquote: ({children}) => <blockquote className="border-l-purple-500">{children}</blockquote>,
+    h1: ({children}) => <Typography variant="h1" gutterBottom><p>{children}</p></Typography>,
+    h2: ({children}) => <Typography variant="h2" gutterBottom><p>{children}</p></Typography>,
+    h3: ({children}) => <Typography variant="h3" gutterBottom><p>{children}</p></Typography>,
+    h4: ({children}) => <Typography variant="h4" gutterBottom><p>{children}</p></Typography>,
+    normal: ({children}) => <Typography variant="subtitle1" gutterBottom component="div"><p>{children}</p></Typography>,
+    blockquote: ({children}) => <blockquote className="border-l-purple-500"><p>{children}</p></blockquote>,
 
     // Ex. 2: rendering custom styles
-    customHeading: ({children}) => <h2 className="text-lg text-primary text-purple-700">{children}</h2>,
+    customHeading: ({children}) => <h2 className="text-lg text-primary text-purple-700"><p>{children}</p></h2>,
   },
 }
 
