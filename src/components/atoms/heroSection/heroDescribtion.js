@@ -51,15 +51,15 @@ const {heroTitle, heroDescribtion, primaryCallToAction, secondaryCallToAction} =
                 alignItems="center"
                 spacing={3}
               >
-              <Grid item xs={12}>
-                {primaryCallToAction && <ActionButton text={primaryCallToAction?.linkText} href={primaryCallToAction?.url} variant="contained"  secondaryColor sx={{mr: 5}} />}
-                {secondaryCallToAction &&  <ActionButton text={secondaryCallToAction?.linkText} href={secondaryCallToAction?.url}  variant="outlined"  secondaryColor/>}
-              </Grid>
-                {/*<Grid item xs={12} md={6}>
-                  <ActionButton text="Say Hello" href="google.com" variant="contained"  secondaryColor/>
+                <Grid item xs={12} >
+                  {primaryCallToAction && <ActionButton text={primaryCallToAction?.linkText} href={primaryCallToAction?.url} variant="contained"  secondaryColor sx={{mr: 5, mb: 2}} />}
+                  {secondaryCallToAction &&  <ActionButton text={secondaryCallToAction?.linkText} href={secondaryCallToAction?.url}  variant="outlined"  secondaryColor sx={{mb: 2}} />}
                 </Grid>
-                <Grid item xs={12} md={6}>
-                  <ActionButton text="Say Hello" href="google.com" variant="outlined"  secondaryColor/>
+              {/*<Grid item xs={12} md={6} sx={{display: {xs: "block", sm: "none"}}}>
+                {primaryCallToAction && <ActionButton text={primaryCallToAction?.linkText} href={primaryCallToAction?.url} variant="contained"  secondaryColor sx={{mr: 5}} />}
+                </Grid>
+                <Grid item xs={12} md={6} sx={{display: {xs: "block", sm: "none"}}}>
+                {secondaryCallToAction &&  <ActionButton text={secondaryCallToAction?.linkText} href={secondaryCallToAction?.url}  variant="outlined"  secondaryColor/>}
                 </Grid>*/}
               </Grid>
             </Box>
